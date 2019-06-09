@@ -1,14 +1,13 @@
-from pydist.linecell import trajectory_set_grid
-
-from cydist.sspd import c_e_sspd, c_g_sspd
-from cydist.dtw import c_e_dtw, c_g_dtw
-from cydist.erp import c_e_erp, c_g_erp
-from cydist.edr import c_e_edr, c_g_edr
-from cydist.lcss import c_e_lcss, c_g_lcss
-from cydist.hausdorff import c_e_hausdorff, c_g_hausdorff
-from cydist.discret_frechet import c_discret_frechet
-from cydist.frechet import c_frechet
-from cydist.sowd import c_sowd_grid
+from .pydist.linecell import trajectory_set_grid
+from .cydist.sspd import c_e_sspd, c_g_sspd
+from .cydist.dtw import c_e_dtw, c_g_dtw
+from .cydist.erp import c_e_erp, c_g_erp
+from .cydist.edr import c_e_edr, c_g_edr
+from .cydist.lcss import c_e_lcss, c_g_lcss
+from .cydist.hausdorff import c_e_hausdorff, c_g_hausdorff
+from .cydist.discret_frechet import c_discret_frechet
+from .cydist.frechet import c_frechet
+from .cydist.sowd import c_sowd_grid
 
 import numpy as np
 
@@ -495,7 +494,7 @@ def pdist(traj_list, metric="sspd", type_d="euclidean", converted=None, precisio
     M : a nT x nT numpy array. Where the i,j entry is the distance between traj_list[i] and traj_list[j]
     """
 
-    list_dim = map(lambda x: x.shape[1] if len(x.shape) > 1 else 1, traj_list)
+    list_dim = list(map(lambda x: x.shape[1] if len(x.shape) > 1 else 1, traj_list))
     nb_traj = len(traj_list)
     if not (len(set(list_dim)) == 1):
         raise ValueError("All trajectories must have same dimesion !")
