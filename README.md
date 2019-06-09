@@ -1,5 +1,8 @@
 # trajectory_distance
 =====================
+This repository is revised for python 3. This code is from https://github.com/bguillouet/traj-dist.
+
+=====================
 
 **trajectory_distance** is a Python module for computing distances between 2D-trajectory objects.
 It is implemented in Cython.
